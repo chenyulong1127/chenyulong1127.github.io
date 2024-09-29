@@ -4,9 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>照片墙</title>
+    <style>
+        .photo-frame {
+        width: 300px;
+        height: auto;
+        margin: 10px;
+        display: inline-block;
+        position: relative;
+        padding: 10px; /* 内边距，给图片留出空间 */
+        border: 5px solid #ddd; /* 边框 */
+        box-shadow: 5px 5px 15px rgba(0,0,0,0.3); /* 阴影效果 */
+        background-color: white; /* 背景颜色 */
+}
+
+.photo-frame img {
+    width: 100%; /* 图片宽度与容器相同 */
+    height: auto; /* 自动调整高度以保持比例 */
+}
+    </style>
 </head>
 <body>
     <h1>该页面未开发··········</h1>
+    <h2>仅提供测试图片</h2>
+    <div class="photo-frame">
+        <img src="./picture/test.jpg" alt="示例图片">
+    </div>
     <a href="index.html">点击回到主页</a>
 </body>
 </html>
