@@ -1,9 +1,10 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>音乐瞬间</title>
+
 </head>
 <body>
     <h1>该页面未开发··········</h1>
@@ -13,7 +14,166 @@
     Your browser does not support the audio element.  
         </source>
     </audio>
+    <audio controls>
+        <source src="./music/一次就好.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.  
+        </source>
+    </audio>
+    <audio controls>
+        <source src="./music/梦里花.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.  
+        </source>
+    </audio>
     <a href="index.html">点击回到主页</a>
 
+   
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>音乐空间</title>
+    <style>
+ body {
+    font-family: 'FangSong', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.audio-player {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    max-width: 900px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.audio-player:hover {
+    transform: translateY(-10px);
+}
+
+.left .cover-image,
+.right .cover-image {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.track-title {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: #555;
+}
+
+.play-button {
+    padding: 10px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.5em;
+    color: #555;
+}
+
+.play-button:hover {
+    color: #333;
+}
+
+/* 显示播放图标，默认情况下 */
+.play-button .icon-play {
+    display: inline-block;
+}
+
+/* 隐藏暂停图标，默认情况下 */
+.play-button .icon-pause {
+    display: none;
+}
+
+/* 播放时显示暂停图标 */
+.play-button.playing .icon-play {
+    display: none;
+}
+
+/* 暂停时显示播放图标 */
+.play-button.paused .icon-pause {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .audio-player {
+        flex-direction: column;
+    }
+
+    .left .cover-image,
+    .right .cover-image {
+        width: 100%;
+    }
+}
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="audio-player left">
+            <img src="./picture/test.jpg" alt="Cover Image" class="cover-image">
+            <div class="info">
+                <h3 class="track-title">云与海</h3>
+                <button class="play-button" onclick="togglePlay(this)">
+                    <span class="icon-play">&#9654;</span>
+                    <span class="icon-pause">&#9664;</span>
+                </button>
+                <audio src="./music/云与海-翻唱.mp3" id="audio1" class="audio-control"></audio>
+            </div>
+        </div>
+        <div class="audio-player right">
+            <img src="./picture/mmexport1683377682281.jpg" alt="Cover Image" class="cover-image">
+            <div class="info">
+                <h3 class="track-title">你从未离去</h3>
+                <button class="play-button" onclick="togglePlay(this)">
+                    <span class="icon-play">&#9654;</span>
+                    <span class="icon-pause">&#9664;</span>
+                </button>
+                <audio src="./music/你从未离去.mp3" id="audio2" class="audio-control"></audio>
+            </div>
+        </div>
+        <!-- 更多音频播放器... -->
+    </div>
+    <script >
+        function togglePlay(button) {
+    const audioId = button.parentNode.querySelector('.audio-control').id;
+    const audio = document.getElementById(audioId);
+
+    if (audio.paused) {
+        audio.play();
+        button.classList.add('playing');
+        button.classList.remove('paused');
+    } else {
+        audio.pause();
+        button.classList.add('paused');
+        button.classList.remove('playing');
+    }
+}
+    </script>
 </body>
 </html>
